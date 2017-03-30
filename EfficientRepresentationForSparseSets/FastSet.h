@@ -28,42 +28,42 @@ class FastSetIterator;
 class FastSet 
 {
 public:
-	friend class FastSetIterator;
+    friend class FastSetIterator;
 
-	friend FastSet &Union( FastSet &LeftOp, FastSet &RightOp );
-	friend FastSet &Intersection( FastSet &LeftOp, FastSet &RightOp );
-	friend FastSet &Subtract( FastSet &LeftOp, FastSet &RightOp );
+    friend FastSet &Union( FastSet &LeftOp, FastSet &RightOp );
+    friend FastSet &Intersection( FastSet &LeftOp, FastSet &RightOp );
+    friend FastSet &Subtract( FastSet &LeftOp, FastSet &RightOp );
 
-	friend bool AreEqual( FastSet &LeftOp, FastSet &RightOp );
-	friend bool AreDisjoint( FastSet &LeftOp, FastSet &RightOp );
-	friend void Swap( FastSet &LeftOp, FastSet &RightOp );
+    friend bool AreEqual( FastSet &LeftOp, FastSet &RightOp );
+    friend bool AreDisjoint( FastSet &LeftOp, FastSet &RightOp );
+    friend void Swap( FastSet &LeftOp, FastSet &RightOp );
 
-	FastSet( int CreationSize );
-	FastSet( FastSet &FS ); // deep copy constructer
-	FastSet &operator=( FastSet &RightOp );   // deep assignment
-	~FastSet() { delete Stack; delete Member; };
+    FastSet( int CreationSize );
+    FastSet( FastSet &FS ); // deep copy constructer
+    FastSet &operator=( FastSet &RightOp );   // deep assignment
+    ~FastSet() { delete Stack; delete Member; };
 
-	bool IsMember( unsigned int i );
-	void Add( unsigned int i );
-	void Remove( unsigned int i );
-	void Subtract( FastSet *FastSet );
-	void Union( FastSet *FastSet );
-	void Dump();  // debug
+    bool IsMember( unsigned int i );
+    void Add( unsigned int i );
+    void Remove( unsigned int i );
+    void Subtract( FastSet *FastSet );
+    void Union( FastSet *FastSet );
+    void Dump();  // debug
 
-	const int Size;  // allocated size, maximum number of members
-	int StackTop;    // number of members
+    const int Size;  // allocated size, maximum number of members
+    int StackTop;    // number of members
 
 private:
-	int *Stack;
-	int *Member;
+    int *Stack;
+    int *Member;
 };
 
 inline bool
 FastSet::IsMember( unsigned int i )
 {
-	return (0 <= i && i < Size &&
-		0 <= Member[i] && Member[i] < StackTop &&
-		Stack[Member[i]] == i);
+    return ( 0 <= i && i < Size &&
+             0 <= Member[i] && Member[i] < StackTop &&
+             Stack[Member[i]] == i);
 }
 
 
@@ -76,11 +76,11 @@ FastSet::IsMember( unsigned int i )
 class FastSetIterator 
 {
 public:
-	FastSetIterator();
-	int Init( FastSet &FastSet );
-	int MoreLeft();
-	int Next();
+    FastSetIterator();
+    int Init( FastSet &FastSet );
+    int MoreLeft();
+    int Next();
 private:
-	FastSet *FS;
-	int StackIndex;
+    FastSet *FS;
+    int StackIndex;
 };
