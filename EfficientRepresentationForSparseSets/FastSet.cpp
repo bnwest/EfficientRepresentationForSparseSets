@@ -40,7 +40,7 @@ Union( FastSet &LeftOp, FastSet &RightOp )
 	else
 	{
 		Die( "INTERNAL : FastSet Union called with different sized arguments" );
-		exit( 0xDEADBEEF ); // dead code but the compiler want what the compiler wants
+		exit( 0xDEADBEEF ); // dead code but the compiler wants what the compiler wants
 	}
 }
 
@@ -63,7 +63,7 @@ Intersection( FastSet &LeftOp, FastSet &RightOp )
 	else
 	{
 		Die( "INTERNAL : FastSet Intersection called with different sized arguments" );
-		exit( 0xDEADBEEF ); // dead code but the compiler want what the compiler wants
+		exit( 0xDEADBEEF ); // dead code but the compiler wants what the compiler wants
 	}
 }
 
@@ -88,11 +88,11 @@ Subtract( FastSet &LeftOp, FastSet &RightOp )
 	else
 	{
 		Die( "INTERNAL : FastSet Subtraction called with different sized arguments" );
-		exit( 0xDEADBEEF ); // dead code but the compiler want what the compiler wants
+		exit( 0xDEADBEEF ); // dead code but the compiler wants what the compiler wants
 	}
 }
 
-int
+bool
 AreEqual( FastSet &LeftOp, FastSet &RightOp )
 {
 	FastSetIterator i;
@@ -112,7 +112,7 @@ AreEqual( FastSet &LeftOp, FastSet &RightOp )
 	}
 }
 
-int
+bool
 AreDisjoint( FastSet &LeftOp, FastSet &RightOp )
 {
 	FastSetIterator i;
@@ -182,7 +182,7 @@ FastSet::operator=( FastSet &RightOp )  // deep assignment
 	else
 	{
 		Die( "INTERNAL : FastSet operator= called with different sized arguments" );
-		return *this;  // removes compiler warning
+		return *this;  // dead code but the compiler wants what the compiler wants
 	}
 }
 

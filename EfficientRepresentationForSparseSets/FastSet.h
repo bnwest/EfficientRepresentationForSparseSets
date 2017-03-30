@@ -34,8 +34,8 @@ public:
 	friend FastSet &Intersection( FastSet &LeftOp, FastSet &RightOp );
 	friend FastSet &Subtract( FastSet &LeftOp, FastSet &RightOp );
 
-	friend int AreEqual( FastSet &LeftOp, FastSet &RightOp );
-	friend int AreDisjoint( FastSet &LeftOp, FastSet &RightOp );
+	friend bool AreEqual( FastSet &LeftOp, FastSet &RightOp );
+	friend bool AreDisjoint( FastSet &LeftOp, FastSet &RightOp );
 	friend void Swap( FastSet &LeftOp, FastSet &RightOp );
 
 	FastSet( int CreationSize );
